@@ -1,12 +1,10 @@
-# Your Name Here
+# Margaret Hollingshead
 # UWYO COSC 1010
-# Submission Date
+# 10/17/24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Lab Section: 12
+# Sources, people worked with, help given to: # Dictionary powerpoint
+
 
 
 random_string = """
@@ -83,18 +81,47 @@ print(len(random_string)) # Print out the size for reference
 #Load all the elements into a dictionary
 #Will need to first declare a dictionary 
 
+characters = {}
+
+for character in random_string:
+    if character in characters.keys():
+        characters[character]+=1
+    else:
+        characters[character]=1
+
+
+
 # Output: each letter and its corresponding occurrence in alphabetical order
+sorted_ch = sorted(characters.items())
+print(sorted_ch)
 
 print("*"*75)
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
-
+MAX = 0
+MIN = 1000
+most_occurred = "a"
+least_occurred = "a"
+print(characters)
+for key in characters.keys():
+    if characters[key] > characters[most_occurred]:
+        MAX = characters[key]
+        most_occurred = key
+    if characters[key] < characters[least_occurred]:
+        MIN = characters[key]
+        least_occurred = key
+        
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
+print(f"The letter that occurred the least is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+
+percents = {}
+
+for key, value in characters.items():
+    percents[key]=(value/2500)*100
+
+print(sorted(percents.items()))
